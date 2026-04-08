@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicolas | Portfólio Profissional</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/code.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animações ao Scroll ) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6c63ff;
+            --secondary: #3f3d56;
+            --light: #f4f4f9;
+            --dark: #0f0f1a;
+            --glass: rgba(255, 255, 255, 0.05 );
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--dark); 
+            color: white; 
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- FUNDO ANIMADO --- */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0f0f1a, #1a1a2e, #16213e, #0f0f1a);
+            background-size: 400% 400%;
+            z-index: -2;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .bg-circles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--primary);
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float 20s infinite alternate;
+        }
+
+        .c1 { width: 400px; height: 400px; top: -100px; left: -100px; }
+        .c2 { width: 300px; height: 300px; bottom: -50px; right: -50px; background: #ff63b1; animation-delay: -5s; }
+        .c3 { width: 250px; height: 250px; top: 40%; left: 60%; background: #63ffda; animation-delay: -10s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 50px) scale(1.2); }
+        }
+
+        /* --- ESTILOS BÁSICOS --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        header { padding: 2rem 0; position: absolute; width: 100%; z-index: 10; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo a { font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; opacity: 0.8; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--primary); }
+
+        .hero { height: 100vh; display: flex; align-items: center; gap: 4rem; }
+        .hero-content { flex: 1; }
+        .greeting { color: var(--primary); font-size: 1.2rem; margin-bottom: 1rem; }
+        .name { font-size: 4rem; font-family: 'Poppins', sans-serif; margin-bottom: 1rem; }
+        .role { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; opacity: 0.9; }
+        .description { margin-bottom: 2.5rem; line-height: 1.6; opacity: 0.7; max-width: 500px; }
+        
+        .hero-btns { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .btn { padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-secondary { border: 1px solid var(--glass-border); background: var(--glass); color: white; backdrop-filter: blur(5px); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2); }
+
+        .social-links { display: flex; gap: 1.5rem; }
+        .social-links a { color: white; font-size: 1.5rem; transition: 0.3s; opacity: 0.6; }
+        .social-links a:hover { color: var(--primary); opacity: 1; transform: scale(1.2); }
+
+        .hero-image { flex: 1; display: flex; justify-content: center; }
+        .image-wrapper { width: 400px; height: 500px; border-radius: 30px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 100px; height: auto; }
+            .name { font-size: 3rem; }
+            .hero-btns, .social-links { justify-content: center; }
+            .description { margin: 0 auto 2.5rem; }
+            .image-wrapper { width: 300px; height: 380px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Animado -->
+    <div class="bg-gradient"></div>
+    <div class="bg-circles">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">NICOLAS<span>.</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="contatos.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="greeting">Olá, eu sou o</h2>
+                <h1 class="name">Nicolas Rodrigues</h1>
+                <p class="role">Desenvolvedor Full Stack & Designer UI/UX</p>
+                <p class="description">Transformando ideias em experiências digitais memoráveis através de código limpo e design inovador.</p>
+                <div class="hero-btns">
+                    <a href="projetos.html" class="btn btn-primary">Ver Projetos</a>
+                    <a href="contatos.html" class="btn btn-secondary">Entrar em Contato</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="image-wrapper">
+                    <!-- Nova foto adicionada abaixo -->
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663192268226/XSVfkzPDtXlLiqlV.png" alt="Nicolas Rodrigues">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 100 } );
+    </script>
+</body>
+</html>

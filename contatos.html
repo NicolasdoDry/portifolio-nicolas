@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Nicolas</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/code.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-section { padding: 150px 0 100px; display: flex; justify-content: center; }
+        .contact-container { background: var(--glass  ); border: 1px solid var(--glass-border); padding: 3rem; border-radius: 30px; width: 100%; max-width: 600px; backdrop-filter: blur(10px); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--light); font-weight: 500; }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 10px; color: white; transition: 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); outline: none; background: rgba(255,255,255,0.1); }
+        .submit-btn { width: 100%; padding: 1rem; background: var(--primary); color: white; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.3s; border: none; margin-bottom: 2rem; }
+        .submit-btn:hover { background: #5a52e0; transform: translateY(-3px); }
+
+        .social-contact { text-align: center; border-top: 1px solid var(--glass-border); padding-top: 2rem; }
+        .social-contact p { color: var(--light); margin-bottom: 1.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .social-icons-grid { display: flex; justify-content: center; gap: 1.5rem; }
+        .social-item { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: white; font-size: 1.5rem; transition: 0.3s ease; text-decoration: none; }
+        .social-item:hover { background: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3); }
+        .social-item.whatsapp:hover { background: #25D366; }
+        .social-item.instagram:hover { background: #E1306C; }
+        .social-item.linkedin:hover { background: #0077B5; }
+        .social-item.github:hover { background: #333; }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <header>
+        <nav class="container">
+            <div class="logo"><a href="index.html">NICOLAS<span>.</span></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="contatos.html" class="active">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container contact-section">
+        <div class="contact-container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Vamos Conversar?</h2>
+            <form>
+                <div class="form-group">
+                    <label>Seu Nome</label>
+                    <input type="text" placeholder="Ex: João Silva">
+                </div>
+                <div class="form-group">
+                    <label>Seu E-mail</label>
+                    <input type="email" placeholder="email@exemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Mensagem</label>
+                    <textarea rows="5" placeholder="Como posso te ajudar?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+            </form>
+            <div class="social-contact">
+                <p>Ou me encontre em:</p>
+                <div class="social-icons-grid">
+                    <a href="#" target="_blank" class="social-item whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="social-item instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="social-item linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank" class="social-item github"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

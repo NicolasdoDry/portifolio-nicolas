@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos | Nicolas</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/code.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .projects-section { padding: 150px 0 100px; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr  )); gap: 2.5rem; margin-top: 4rem; }
+        
+        .project-card { 
+            background: var(--glass); 
+            border: 1px solid var(--glass-border); 
+            border-radius: 25px; 
+            overflow: hidden; 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            backdrop-filter: blur(10px);
+        }
+        
+        .project-card:hover { 
+            transform: translateY(-15px); 
+            border-color: var(--primary); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .project-img { height: 220px; overflow: hidden; position: relative; }
+        .project-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .project-card:hover .project-img img { transform: scale(1.1); }
+        
+        .project-info { padding: 2rem; }
+        .project-info h3 { margin-bottom: 12px; color: white; font-size: 1.5rem; font-family: 'Poppins', sans-serif; }
+        .project-info p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.6; min-height: 70px; }
+        
+        .project-tags { display: flex; gap: 0.8rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .tag { font-size: 0.75rem; background: rgba(108, 99, 255, 0.15); color: var(--primary); padding: 4px 12px; border-radius: 20px; font-weight: 600; text-transform: uppercase; }
+
+        .btn-view { 
+            display: inline-block;
+            padding: 10px 25px; 
+            background: var(--primary); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 12px; 
+            font-weight: 600; 
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        .btn-view:hover { background: #5a52e0; transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <header>
+        <nav class="container">
+            <div class="logo"><a href="index.html">NICOLAS<span>.</span></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="projetos.html" class="active">Projetos</a></li>
+                <li><a href="contatos.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container projects-section">
+        <h2 style="text-align: center; font-size: 3rem; font-family: 'Poppins', sans-serif;" data-aos="fade-down">Meus Projetos</h2>
+        <p style="text-align: center; color: #94a3b8; margin-top: 1rem;" data-aos="fade-up">Uma seleção dos meus trabalhos mais recentes e relevantes.</p>
+
+        <div class="projects-grid">
+            <!-- Projeto 1: Clínica Pata Amiga -->
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-img">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663192268226/LVCYpUhzikWQYUDl.jpg" alt="Clínica Pata Amiga">
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">Web Design</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                    <h3>Clínica Pata Amiga</h3>
+                    <p>Interface moderna e acolhedora para uma clínica veterinária, focada na experiência do usuário e agendamentos.</p>
+                    <a href="#" class="btn-view">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <!-- Projeto 2: Mineiro Vidros -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-img">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663192268226/rrgJNpQvNpwbJMPs.jpg" alt="Mineiro Vidros">
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">Arquitetura</span>
+                        <span class="tag">Front-end</span>
+                    </div>
+                    <h3>Mineiro Vidros</h3>
+                    <p>Catálogo digital de alta qualidade para vidraçaria, destacando projetos em vidro temperado e decoração.</p>
+                    <a href="#" class="btn-view">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <!-- Projeto 3: Jokenpô -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-img">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663192268226/rLGWqRaUiqxgWego.jpg" alt="Jokenpô">
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Games</span>
+                    </div>
+                    <h3>Jokenpô Interativo</h3>
+                    <p>Jogo digital clássico desenvolvido com lógica JavaScript, oferecendo uma experiência divertida e dinâmica.</p>
+                    <a href="#" class="btn-view">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true } );</script>
+</body>
+</html>
