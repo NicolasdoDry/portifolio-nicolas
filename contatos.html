@@ -4,76 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato | Nicolas</title>
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/code.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
-        .contact-section { padding: 150px 0 100px; display: flex; justify-content: center; }
-        .contact-container { background: var(--glass  ); border: 1px solid var(--glass-border); padding: 3rem; border-radius: 30px; width: 100%; max-width: 600px; backdrop-filter: blur(10px); }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--light); font-weight: 500; }
-        .form-group input, .form-group textarea { width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 10px; color: white; transition: 0.3s; }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); outline: none; background: rgba(255,255,255,0.1); }
-        .submit-btn { width: 100%; padding: 1rem; background: var(--primary); color: white; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.3s; border: none; margin-bottom: 2rem; }
-        .submit-btn:hover { background: #5a52e0; transform: translateY(-3px); }
+        :root { --primary: #7c3aed; --secondary: #db2777; --dark: #020617; --glass: rgba(255, 255, 255, 0.03 ); --glass-border: rgba(255, 255, 255, 0.08); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: var(--dark); color: white; overflow-x: hidden; }
+        .bg-gradient { position: fixed; inset: 0; background: linear-gradient(45deg, #020617, #0f172a, #1e1b4b, #020617); background-size: 400% 400%; z-index: -2; animation: gradientBG 15s ease infinite; }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .circle { position: fixed; border-radius: 50%; filter: blur(100px); opacity: 0.2; z-index: -1; animation: float 20s infinite alternate; }
+        .c1 { width: 500px; height: 500px; top: -10%; left: -10%; background: var(--primary); }
+        .c2 { width: 400px; height: 400px; bottom: -10%; right: -10%; background: var(--secondary); }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        header { padding: 2rem 0; position: fixed; width: 100%; top: 0; z-index: 100; backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass-border); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo a { font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; opacity: 0.7; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--primary); }
 
-        .social-contact { text-align: center; border-top: 1px solid var(--glass-border); padding-top: 2rem; }
-        .social-contact p { color: var(--light); margin-bottom: 1.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-        .social-icons-grid { display: flex; justify-content: center; gap: 1.5rem; }
-        .social-item { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: white; font-size: 1.5rem; transition: 0.3s ease; text-decoration: none; }
-        .social-item:hover { background: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3); }
-        .social-item.whatsapp:hover { background: #25D366; }
-        .social-item.instagram:hover { background: #E1306C; }
-        .social-item.linkedin:hover { background: #0077B5; }
-        .social-item.github:hover { background: #333; }
+        .contact-section { padding: 180px 0 100px; display: flex; justify-content: center; }
+        .contact-container { background: var(--glass); border: 1px solid var(--glass-border); padding: 4rem; border-radius: 40px; width: 100%; max-width: 650px; backdrop-filter: blur(20px); }
+        .contact-container h2 { font-family: 'Sora', sans-serif; font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
+        
+        .form-group { margin-bottom: 2rem; }
+        .form-group label { display: block; margin-bottom: 0.8rem; color: #cbd5e1; font-weight: 500; }
+        .form-group input, .form-group textarea { width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 15px; color: white; transition: 0.3s; font-family: 'Outfit', sans-serif; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); outline: none; background: rgba(255,255,255,0.08); }
+        
+        .submit-btn { width: 100%; padding: 1.2rem; background: var(--primary); color: white; border-radius: 15px; font-weight: 700; cursor: pointer; transition: 0.4s; border: none; margin-bottom: 3rem; font-size: 1.1rem; }
+        .submit-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4); }
+        
+        .social-contact { text-align: center; border-top: 1px solid var(--glass-border); padding-top: 3rem; }
+        .social-icons-grid { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .social-item { display: flex; align-items: center; justify-content: center; width: 55px; height: 55px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 18px; color: white; font-size: 1.6rem; transition: 0.4s; text-decoration: none; }
+        .social-item:hover { transform: translateY(-8px); color: white; }
+        
+        .social-item.whatsapp:hover { background: #25D366; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+        .social-item.instagram:hover { background: #E1306C; box-shadow: 0 10px 20px rgba(225, 48, 108, 0.3); }
+        .social-item.linkedin:hover { background: #0077B5; box-shadow: 0 10px 20px rgba(0, 119, 181, 0.3); }
+        .social-item.github:hover { background: #333; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
     </style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    <header>
-        <nav class="container">
-            <div class="logo"><a href="index.html">NICOLAS<span>.</span></a></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="contatos.html" class="active">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="bg-gradient"></div><div class="circle c1"></div><div class="circle c2"></div>
+    <header><nav class="container"><div class="logo"><a href="index.html">NICOLAS<span>.</span></a></div><ul class="nav-links"><li><a href="index.html">Início</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="contatos.html" class="active">Contato</a></li></ul></nav></header>
     <main class="container contact-section">
         <div class="contact-container">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Vamos Conversar?</h2>
+            <h2>Vamos Conversar?</h2>
             <form>
-                <div class="form-group">
-                    <label>Seu Nome</label>
-                    <input type="text" placeholder="Ex: João Silva">
-                </div>
-                <div class="form-group">
-                    <label>Seu E-mail</label>
-                    <input type="email" placeholder="email@exemplo.com">
-                </div>
-                <div class="form-group">
-                    <label>Mensagem</label>
-                    <textarea rows="5" placeholder="Como posso te ajudar?"></textarea>
-                </div>
+                <div class="form-group"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
+                <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com"></div>
+                <div class="form-group"><label>Mensagem</label><textarea rows="4" placeholder="Como posso ajudar?"></textarea></div>
                 <button type="submit" class="submit-btn">Enviar Mensagem</button>
             </form>
             <div class="social-contact">
-                <p>Ou me encontre em:</p>
+                <p style="margin-bottom: 2rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Conecte-se comigo</p>
                 <div class="social-icons-grid">
-                    <a href="#" target="_blank" class="social-item whatsapp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" target="_blank" class="social-item instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank" class="social-item linkedin"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank" class="social-item github"><i class="fab fa-github"></i></a>
+                    <!-- Links reais atualizados abaixo -->
+                    <a href="https://wa.me/SEUNUMERO" target="_blank" class="social-item whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/SEUUSER" target="_blank" class="social-item instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/nicolas-rodrigues-4a1564402/" target="_blank" class="social-item linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/SEUUSER" target="_blank" class="social-item github" title="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
     </main>
-    <script src="script.js"></script>
 </body>
 </html>
