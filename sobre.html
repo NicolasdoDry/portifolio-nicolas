@@ -1,48 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Configurações para o site funcionar bem em celulares e computadores -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre | Nicolas</title>
     
-    <!-- Favicon -->
+    <!-- Ícone que aparece na aba lá em cima -->
     <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/code.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Fontes modernas do Google para o texto ficar bonito -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Biblioteca de ícones (como os das habilidades abaixo ) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Biblioteca que faz os elementos aparecerem com animação -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
     <style>
-        .about-section { padding: 150px 0 100px; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
+        /* Cores e Estilos Base (Padrão do site todo ) */
+        :root { --primary: #7c3aed; --secondary: #db2777; --dark: #020617; --glass: rgba(255, 255, 255, 0.03); --glass-border: rgba(255, 255, 255, 0.08); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: var(--dark); color: white; overflow-x: hidden; }
         
-        .about-text h2 { font-size: 2.8rem; color: var(--primary ); margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif; }
-        .about-text p { color: #94a3b8; line-height: 1.8; margin-bottom: 1.2rem; font-size: 1.05rem; text-align: justify; }
-        .about-text strong { color: white; }
+        /* Fundo Animado e Bolas Flutuantes */
+        .bg-gradient { position: fixed; inset: 0; background: linear-gradient(45deg, #020617, #0f172a, #1e1b4b, #020617); background-size: 400% 400%; z-index: -2; animation: gradientBG 15s ease infinite; }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .circle { position: fixed; border-radius: 50%; filter: blur(100px); opacity: 0.2; z-index: -1; animation: float 20s infinite alternate; }
+        .c1 { width: 500px; height: 500px; top: -10%; left: -10%; background: var(--primary); }
+        .c2 { width: 400px; height: 400px; bottom: -10%; right: -10%; background: var(--secondary); }
 
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 1.2rem; margin-top: 2.5rem; }
-        .skill-card { background: var(--glass); padding: 1.5rem; border-radius: 15px; text-align: center; border: 1px solid var(--glass-border); transition: 0.3s; }
-        .skill-card:hover { border-color: var(--primary); transform: translateY(-5px); background: rgba(108, 99, 255, 0.1); }
-        .skill-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 12px; }
-        .skill-card p { font-size: 0.9rem; font-weight: 600; color: white; margin: 0; }
+        /* Menu do Topo */
+        header { padding: 2rem 0; position: fixed; width: 100%; top: 0; z-index: 100; backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass-border); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo a { font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; opacity: 0.7; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--primary); }
 
-        .image-wrapper { width: 100%; height: 500px; border-radius: 30px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        /* Seção Sobre Mim */
+        .about-section { padding: 180px 0 100px; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
+        .about-text h2 { font-size: 3rem; font-family: 'Sora', sans-serif; margin-bottom: 2rem; }
+        .about-text p { color: #94a3b8; line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .about-text strong { color: var(--primary); }
+
+        /* Grade de Habilidades (Skills) */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+        .skill-card { background: var(--glass); padding: 1.5rem; border-radius: 20px; text-align: center; border: 1px solid var(--glass-border); transition: 0.4s; }
+        .skill-card:hover { border-color: var(--primary); transform: translateY(-8px); background: rgba(124, 58, 237, 0.05); }
+        .skill-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+
+        /* Imagem do computador/trabalho */
+        .image-wrapper { width: 100%; height: 550px; border-radius: 40px; overflow: hidden; border: 1px solid var(--glass-border); }
         .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
-        @media (max-width: 992px) { 
-            .about-grid { grid-template-columns: 1fr; text-align: center; } 
-            .about-text p { text-align: center; }
-            .image-wrapper { height: 400px; max-width: 500px; margin: 0 auto; }
-        }
+        @media (max-width: 992px) { .about-grid { grid-template-columns: 1fr; text-align: center; } .image-wrapper { height: 400px; max-width: 500px; margin: 0 auto; } }
     </style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    <div class="bg-circles">
-        <div class="circle c1"></div>
-        <div class="circle c2"></div>
-    </div>
-
+    <!-- Elementos do fundo animado -->
+    <div class="bg-gradient"></div><div class="circle c1"></div><div class="circle c2"></div>
+    
+    <!-- Barra de navegação (Menu) -->
     <header>
         <nav class="container">
             <div class="logo"><a href="index.html">NICOLAS<span>.</span></a></div>
@@ -55,38 +78,35 @@
         </nav>
     </header>
 
+    <!-- Conteúdo principal da página Sobre -->
     <main class="container about-section">
         <div class="about-grid">
+            <!-- Imagem lateral do computador -->
             <div class="about-image" data-aos="fade-right">
                 <div class="image-wrapper">
-                    <!-- Imagem do computador (Laptop) -->
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Ambiente de Desenvolvimento">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Meu ambiente de trabalho">
                 </div>
             </div>
+
+            <!-- Texto descritivo sobre você -->
             <div class="about-text" data-aos="fade-left">
                 <h2>Minha Jornada</h2>
-                <p>
-                    Olá! Eu sou o <strong>Nicolas Rodrigues</strong>, um desenvolvedor apaixonado por transformar linhas de código em experiências digitais que realmente fazem a diferença. Com foco em <strong>Desenvolvimento Full Stack e UI/UX Design</strong>, busco o equilíbrio perfeito entre funcionalidade robusta e uma interface visualmente impactante.
-                </p>
-                <p>
-                    Minha jornada na tecnologia é movida pela curiosidade constante e pelo desejo de resolver problemas complexos através de soluções simples e elegantes. Acredito que um bom software não deve apenas funcionar bem, mas também ser intuitivo e proporcionar uma navegação fluida para o usuário final.
-                </p>
-                <p>
-                    Atualmente, dedico meu tempo a aprimorar minhas habilidades nas tecnologias mais modernas do mercado, sempre focado em <strong>performance, acessibilidade e código limpo</strong>. Estou sempre em busca de novos desafios que me permitam evoluir e contribuir para projetos inovadores.
-                </p>
-
+                <p>Olá! Eu sou o <strong>Nicolas Rodrigues</strong>, um desenvolvedor apaixonado por transformar linhas de código em experiências digitais memoráveis.</p>
+                <p>Com foco em <strong>Desenvolvimento Full Stack</strong>, busco o equilíbrio perfeito entre funcionalidade robusta e estética moderna em cada projeto que realizo.</p>
+                
+                <!-- Grade de ferramentas (Figma removido conforme solicitado ) -->
                 <div class="skills-grid">
                     <div class="skill-card"><i class="fab fa-html5"></i><p>HTML5</p></div>
                     <div class="skill-card"><i class="fab fa-css3-alt"></i><p>CSS3</p></div>
-                    <div class="skill-card"><i class="fab fa-js"></i><p>JavaScript</p></div>
-                    <div class="skill-card"><i class="fab fa-react"></i><p>React.js</p></div>
-                    <div class="skill-card"><i class="fab fa-node-js"></i><p>Node.js</p></div>
-                    <div class="skill-card"><i class="fab fa-figma"></i><p>Figma</p></div>
+                    <div class="skill-card"><i class="fab fa-js"></i><p>JS</p></div>
+                    <div class="skill-card"><i class="fab fa-react"></i><p>React</p></div>
+                    <div class="skill-card"><i class="fab fa-node-js"></i><p>Node</p></div>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- Ativa as animações de entrada -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init({ once: true } );</script>
 </body>
