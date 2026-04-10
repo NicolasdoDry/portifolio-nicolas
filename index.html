@@ -1,145 +1,158 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Configurações para o site funcionar bem em celulares e computadores -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nicolas | Portfólio Profissional</title>
     
-    <!-- Favicon -->
+    <!-- Ícone que aparece na aba lá em cima -->
     <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/code.png">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- Fontes que deixam o texto com cara de site moderno e profissional -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Biblioteca de ícones (GitHub, LinkedIn, etc ) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- AOS (Animações ao Scroll ) -->
+    <!-- Biblioteca que faz as coisas "voarem" para a tela quando você desce a página -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <style>
-        :root {
-            --primary: #6c63ff;
-            --secondary: #3f3d56;
-            --light: #f4f4f9;
-            --dark: #0f0f1a;
-            --glass: rgba(255, 255, 255, 0.05 );
-            --glass-border: rgba(255, 255, 255, 0.1);
+        /* Definindo as cores do site: Roxo, Rosa e o fundo Escuro */
+        :root { 
+            --primary: #7c3aed; 
+            --secondary: #db2777; 
+            --dark: #020617; 
+            --glass: rgba(255, 255, 255, 0.03 ); 
+            --glass-border: rgba(255, 255, 255, 0.08); 
         }
 
+        /* Tira as margens chatas que o navegador coloca sozinho */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* Estilo do fundo e da letra do site inteiro */
         body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--dark); 
+            font-family: 'Outfit', sans-serif; 
+            background: var(--dark); 
             color: white; 
-            overflow-x: hidden;
-            min-height: 100vh;
+            overflow-x: hidden; 
         }
 
-        /* --- FUNDO ANIMADO --- */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #0f0f1a, #1a1a2e, #16213e, #0f0f1a);
-            background-size: 400% 400%;
-            z-index: -2;
-            animation: gradientBG 15s ease infinite;
+        /* O gradiente colorido que fica se mexendo lá no fundo */
+        .bg-gradient { 
+            position: fixed; 
+            inset: 0; 
+            background: linear-gradient(45deg, #020617, #0f172a, #1e1b4b, #020617); 
+            background-size: 400% 400%; 
+            z-index: -2; 
+            animation: gradientBG 15s ease infinite; 
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes gradientBG { 
+            0% { background-position: 0% 50%; } 
+            50% { background-position: 100% 50%; } 
+            100% { background-position: 0% 50%; } 
         }
 
-        .bg-circles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
+        /* As bolas coloridas e borradas que ficam flutuando */
+        .circle { 
+            position: fixed; 
+            border-radius: 50%; 
+            filter: blur(100px); 
+            opacity: 0.2; 
+            z-index: -1; 
+            animation: float 20s infinite alternate; 
+        }
+        .c1 { width: 500px; height: 500px; top: -10%; left: -10%; background: var(--primary); }
+        .c2 { width: 400px; height: 400px; bottom: -10%; right: -10%; background: var(--secondary); }
+
+        @keyframes float { 
+            0% { transform: translate(0, 0) scale(1); } 
+            100% { transform: translate(100px, 50px) scale(1.1); } 
         }
 
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            background: var(--primary);
-            filter: blur(80px);
-            opacity: 0.15;
-            animation: float 20s infinite alternate;
+        /* Menu do topo (Barra de navegação) */
+        header { 
+            padding: 2rem 0; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 100; 
+            backdrop-filter: blur(10px); 
+            border-bottom: 1px solid var(--glass-border); 
         }
 
-        .c1 { width: 400px; height: 400px; top: -100px; left: -100px; }
-        .c2 { width: 300px; height: 300px; bottom: -50px; right: -50px; background: #ff63b1; animation-delay: -5s; }
-        .c3 { width: 250px; height: 250px; top: 40%; left: 60%; background: #63ffda; animation-delay: -10s; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(100px, 50px) scale(1.2); }
-        }
-
-        /* --- ESTILOS BÁSICOS --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        header { padding: 2rem 0; position: absolute; width: 100%; z-index: 10; }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo a { font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; }
+
+        /* Estilo do nome NICOLAS no topo */
+        .logo a { 
+            font-family: 'Sora', sans-serif; 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            color: white; 
+            text-decoration: none; 
+        }
         .logo span { color: var(--primary); }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 500; opacity: 0.8; transition: 0.3s; }
+
+        /* Links do menu (Início, Sobre, etc) */
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; opacity: 0.7; transition: 0.3s; }
         .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--primary); }
 
-        .hero { height: 100vh; display: flex; align-items: center; gap: 4rem; }
-        .hero-content { flex: 1; }
-        .greeting { color: var(--primary); font-size: 1.2rem; margin-bottom: 1rem; }
-        .name { font-size: 4rem; font-family: 'Poppins', sans-serif; margin-bottom: 1rem; }
-        .role { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; opacity: 0.9; }
-        .description { margin-bottom: 2.5rem; line-height: 1.6; opacity: 0.7; max-width: 500px; }
-        
-        .hero-btns { display: flex; gap: 1rem; margin-bottom: 2rem; }
-        .btn { padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600; transition: 0.3s; }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-secondary { border: 1px solid var(--glass-border); background: var(--glass); color: white; backdrop-filter: blur(5px); }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2); }
+        /* Seção principal (Hero) com seu nome e foto */
+        .hero { height: 100vh; display: flex; align-items: center; gap: 4rem; padding-top: 80px; }
+        .hero-content { flex: 1.2; }
 
-        .social-links { display: flex; gap: 1.5rem; }
-        .social-links a { color: white; font-size: 1.5rem; transition: 0.3s; opacity: 0.6; }
-        .social-links a:hover { color: var(--primary); opacity: 1; transform: scale(1.2); }
+        /* Títulos grandes e chamativos */
+        .name { 
+            font-size: 4.5rem; 
+            font-family: 'Sora', sans-serif; 
+            font-weight: 800; 
+            line-height: 1.1; 
+            margin-bottom: 1.5rem; 
+            background: linear-gradient(to right, #fff, #94a3b8); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
 
-        .hero-image { flex: 1; display: flex; justify-content: center; }
-        .image-wrapper { width: 400px; height: 500px; border-radius: 30px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        /* Botões de ação (Ver Projetos e Contato) */
+        .hero-btns { display: flex; gap: 1.5rem; margin-bottom: 3rem; }
+        .btn { padding: 1rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: 600; transition: 0.4s; }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3); }
+        .btn-secondary { border: 1px solid var(--glass-border); background: var(--glass); color: white; backdrop-filter: blur(10px); }
+        .btn:hover { transform: translateY(-5px); filter: brightness(1.2); }
+
+        /* Estilo da sua foto profissional */
+        .image-wrapper { 
+            width: 420px; 
+            height: 520px; 
+            border-radius: 40px; 
+            overflow: hidden; 
+            border: 1px solid var(--glass-border); 
+        }
         .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
-        @media (max-width: 992px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 100px; height: auto; }
-            .name { font-size: 3rem; }
-            .hero-btns, .social-links { justify-content: center; }
-            .description { margin: 0 auto 2.5rem; }
-            .image-wrapper { width: 300px; height: 380px; }
+        /* Ajustes para o site não quebrar no celular */
+        @media (max-width: 992px) { 
+            .hero { flex-direction: column; text-align: center; height: auto; padding: 150px 0 100px; } 
+            .name { font-size: 3rem; } 
+            .hero-btns { justify-content: center; } 
+            .image-wrapper { width: 320px; height: 400px; } 
         }
     </style>
 </head>
 <body>
-
-    <!-- Background Animado -->
+    <!-- Elementos do fundo animado -->
     <div class="bg-gradient"></div>
-    <div class="bg-circles">
-        <div class="circle c1"></div>
-        <div class="circle c2"></div>
-        <div class="circle c3"></div>
-    </div>
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
 
+    <!-- Barra de navegação -->
     <header>
         <nav class="container">
-            <div class="logo">
-                <a href="index.html">NICOLAS<span>.</span></a>
-            </div>
+            <div class="logo"><a href="index.html">NICOLAS<span>.</span></a></div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
@@ -149,35 +162,39 @@
         </nav>
     </header>
 
+    <!-- Conteúdo da página inicial -->
     <main>
         <section class="hero container">
-            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-                <h2 class="greeting">Olá, eu sou o</h2>
+            <div class="hero-content" data-aos="fade-right">
+                <p style="color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 1rem;">Desenvolvedor & Designer</p>
                 <h1 class="name">Nicolas Rodrigues</h1>
-                <p class="role">Desenvolvedor Full Stack & Designer UI/UX</p>
-                <p class="description">Transformando ideias em experiências digitais memoráveis através de código limpo e design inovador.</p>
+                <p style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #cbd5e1;">Transformando código em arte digital.</p>
+                <p style="margin-bottom: 3rem; color: #94a3b8; font-size: 1.1rem; max-width: 550px;">Especialista em criar interfaces modernas e sistemas de alta performance.</p>
+                
                 <div class="hero-btns">
                     <a href="projetos.html" class="btn btn-primary">Ver Projetos</a>
-                    <a href="contatos.html" class="btn btn-secondary">Entrar em Contato</a>
+                    <a href="contatos.html" class="btn btn-secondary">Contato</a>
                 </div>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <!-- Ícones das suas redes sociais -->
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="https://github.com/" target="_blank" style="color: white; font-size: 1.4rem; opacity: 0.5; transition: 0.3s;"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/nicolas-rodrigues-4a1564402/" target="_blank" style="color: white; font-size: 1.4rem; opacity: 0.5; transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" style="color: white; font-size: 1.4rem; opacity: 0.5; transition: 0.3s;"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="hero-image" data-aos="zoom-in" data-aos-duration="1200">
+
+            <!-- Sua foto profissional -->
+            <div class="hero-image" data-aos="zoom-in">
                 <div class="image-wrapper">
-                    <!-- Nova foto adicionada abaixo -->
                     <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663192268226/XSVfkzPDtXlLiqlV.png" alt="Nicolas Rodrigues">
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Ativa as animações -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ once: true, offset: 100 } );
-    </script>
+    <script>AOS.init({ once: true, duration: 1000 } );</script>
 </body>
 </html>
